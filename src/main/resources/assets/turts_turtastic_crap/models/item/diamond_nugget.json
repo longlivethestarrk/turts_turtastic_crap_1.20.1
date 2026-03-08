@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "turtsturtasticcrap:item/diamond_nugget"
+    "layer0": "turts_turtastic_crap:item/diamond_nugget"
   }
 }
