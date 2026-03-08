@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "turts_turtastic_crap",
+	"version": "${version}",
+	"name": "Turts_Turtastic_Crap",
+	"description": "Stuff for my turtastic modpack",
+	"authors": [
+		"Turt!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/turts_turtastic_crap/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.turt.turtsturtasticcrap.Turts_Turtastic_Crap"
+		],
+		"client": [
+			"net.turt.turtsturtasticcrap.Turts_Turtastic_Crap_Client"
+		],
+		"fabric-datagen": [
+			"net.turt.turtsturtasticcrap.Turts_Turtastic_CrapDataGenerator"
+		]
+	},
+	"mixins": [
+		"turts_turtastic_crap.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
