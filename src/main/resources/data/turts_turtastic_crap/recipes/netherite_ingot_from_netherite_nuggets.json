@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "ingredients",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "turts_turtastic_crap:netherite_nugget"
+    }
+  },
+  "result": {
+    "item": "minecraft:netherite_ingot"
+  }
+}

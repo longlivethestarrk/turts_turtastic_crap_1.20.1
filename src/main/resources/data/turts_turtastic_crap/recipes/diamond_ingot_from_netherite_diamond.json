@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "ingredients",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "turts_turtastic_crap:diamond_nugget"
+    }
+  },
+  "result": {
+    "item": "minecraft:diamond"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "tag": "turts_turtastic_crap:diamond_gear"
+    }
+  ],
+  "result": "turts_turtastic_crap:diamond_nugget"
+}
