@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/copper_nugget"
+  }
+}

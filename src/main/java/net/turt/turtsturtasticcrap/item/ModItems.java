@@ -11,10 +11,14 @@ import net.minecraft.util.Identifier;
 import net.turt.turtsturtasticcrap.Turts_Turtastic_Crap;
 
 public class ModItems {
+    public static final Item NETHERITENUGGET = registerItem("netherite_nugget", new Item(new FabricItemSettings()));
     public static final Item DIAMONDNUGGET = registerItem("diamond_nugget", new Item(new FabricItemSettings()));
+    public static final Item COPPERNUGGET = registerItem("copper_nugget", new Item(new FabricItemSettings()));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
+        entries.add(NETHERITENUGGET);
         entries.add(DIAMONDNUGGET);
+        entries.add(COPPERNUGGET);
     }
 
     private static Item registerItem(String name, Item item) {
