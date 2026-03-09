@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import net.turt.turtsturtasticcrap.Turts_Turtastic_Crap;
 
 public class ModItems {
-    public static final Item NETHERITENUGGET = registerItem("netherite_nugget", new Item(new FabricItemSettings()));
+    public static final Item NETHERITENUGGET = registerItem("netherite_nugget", new Item(new FabricItemSettings().fireproof()));
     public static final Item DIAMONDNUGGET = registerItem("diamond_nugget", new Item(new FabricItemSettings()));
     public static final Item COPPERNUGGET = registerItem("copper_nugget", new Item(new FabricItemSettings()));
 
