@@ -1,0 +1,6 @@
+{
+  "parent": "turts_turtastic_crap:item/longbow",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/longbow_pulling_0"
+  }
+}

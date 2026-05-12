@@ -1,6 +1,9 @@
 package net.turt.turtsturtasticcrap;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import net.turt.turtsturtasticcrap.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,0 +1,6 @@
+{
+  "parent": "turts_turtastic_crap:item/flatbow",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/flatbow_pulling_2"
+  }
+}
