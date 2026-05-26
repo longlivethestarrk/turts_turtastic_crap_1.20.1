@@ -21,6 +21,7 @@ public class ModItems {
     public static final Item FLATBOW = registerItem("flatbow", new  BowItem(new Item.Settings().maxDamage(400)));
     public static final Item LONGBOW = registerItem("longbow", new BowItem(new Item.Settings().maxDamage(500)));
     public static final Item PISTOLCROSSBOW = registerItem("pistol_crossbow", new CrossbowItem(new Item.Settings().maxDamage(500)));
+    public static final Item HEAVYCROSSBOW = registerItem("heavy_crossbow", new CrossbowItem(new Item.Settings().maxDamage(500)));
     public static final Item ARBALEST = registerItem("arbalest", new CrossbowItem(new Item.Settings().maxDamage(500)));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
@@ -33,6 +34,7 @@ public class ModItems {
         entries.add(FLATBOW);
         entries.add(LONGBOW);
         entries.add(PISTOLCROSSBOW);
+        entries.add(HEAVYCROSSBOW);
         entries.add(ARBALEST);
     }
 

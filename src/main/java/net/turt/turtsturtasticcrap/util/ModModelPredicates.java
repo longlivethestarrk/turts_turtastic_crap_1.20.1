@@ -12,6 +12,7 @@ public class ModModelPredicates {
         registerCustomBow(ModItems.FLATBOW);
         registerCustomBow(ModItems.LONGBOW);
         registerCustomCrossbow(ModItems.PISTOLCROSSBOW);
+        registerCustomCrossbow(ModItems.HEAVYCROSSBOW);
         registerCustomCrossbow(ModItems.ARBALEST);
     }
 
