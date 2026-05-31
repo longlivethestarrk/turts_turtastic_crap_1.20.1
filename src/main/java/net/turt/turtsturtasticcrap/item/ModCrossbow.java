@@ -8,7 +8,7 @@ public class ModCrossbow extends CrossbowItem {
         super(settings);
     }
 
-    public static void registerCrossbowItems() {
+    public static void registerModCrossbow() {
         Turts_Turtastic_Crap.LOGGER.info("Registering Mod Items for " + Turts_Turtastic_Crap.MOD_ID);
     }
 }

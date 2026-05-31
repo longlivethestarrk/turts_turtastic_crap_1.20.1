@@ -15,7 +15,7 @@ public class Turts_Turtastic_Crap implements ModInitializer {
 	public void onInitialize() {
 
 		ModItems.registerModItems();
-		ModCrossbow.registerCrossbowItems();
+		ModCrossbow.registerModCrossbow();
 
 	}
 }
