@@ -6,7 +6,8 @@
 		"ExampleMixin"
 	],
 	"client": [
-		"AbstractClientPlayerEntityMixin"
+		"AbstractClientPlayerEntityMixin",
+		"ModBowItemMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

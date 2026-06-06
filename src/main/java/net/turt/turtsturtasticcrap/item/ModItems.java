@@ -3,7 +3,6 @@ package net.turt.turtsturtasticcrap.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
@@ -17,8 +16,8 @@ public class ModItems {
     public static final Item DIAMONDNUGGET = registerItem("diamond_nugget", new Item(new FabricItemSettings()));
     public static final Item COPPERNUGGET = registerItem("copper_nugget", new Item(new FabricItemSettings()));
 
-    public static final Item FLATBOW = registerItem("flatbow", new  BowItem(new Item.Settings().maxDamage(400)));
-    public static final Item LONGBOW = registerItem("longbow", new BowItem(new Item.Settings().maxDamage(500)));
+    public static final Item FLATBOW = registerItem("flatbow", new ModBowItem(new FabricItemSettings().maxCount(1).maxDamage(480), 40, 1.5F, 1.1));
+    public static final Item LONGBOW = registerItem("longbow", new ModBowItem(new FabricItemSettings().maxCount(1).maxDamage(576), 70, 2.5F, 1.25));
     public static final Item PISTOLCROSSBOW = registerItem("pistol_crossbow", new ModCrossbow(new Item.Settings().maxDamage(500)));
     public static final Item HEAVYCROSSBOW = registerItem("heavy_crossbow", new ModCrossbow(new Item.Settings().maxDamage(500)));
     public static final Item ARBALEST = registerItem("arbalest", new ModCrossbow(new Item.Settings().maxDamage(500)));

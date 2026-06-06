@@ -30,14 +30,14 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
         ItemStack itemStack = this.getActiveItem();
         if (this.isUsingItem() && itemStack.isOf(ModItems.FLATBOW)) {
             int i = this.getItemUseTime();
-            float g = (float)i / 20.0f;
+            float g = (float)i / 40.0f;
             g = g > 1.0f ? 1.0f : g * g;
             f *= 1.0f - g * 0.15f;
             info.setReturnValue(MathHelper.lerp(MinecraftClient.getInstance().options.getFovEffectScale().getValue().floatValue(), 1.0f, f));
         }
         if (this.isUsingItem() && itemStack.isOf(ModItems.LONGBOW)) {
             int i = this.getItemUseTime();
-            float g = (float)i / 20.0f;
+            float g = (float)i / 60.0f; //zoom value
             g = g > 1.0f ? 1.0f : g * g;
             f *= 1.0f - g * 0.15f;
             info.setReturnValue(MathHelper.lerp(MinecraftClient.getInstance().options.getFovEffectScale().getValue().floatValue(), 1.0f, f));

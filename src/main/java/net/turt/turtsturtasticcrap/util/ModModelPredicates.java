@@ -9,19 +9,19 @@ import net.turt.turtsturtasticcrap.item.ModItems;
 
 public class ModModelPredicates {
     public static void registerModModelPredicates() {
-        registerCustomBow(ModItems.FLATBOW);
-        registerCustomBow(ModItems.LONGBOW);
+        registerCustomFlatBow(ModItems.FLATBOW);
+        registerCustomLongBow(ModItems.LONGBOW);
         registerCustomCrossbow(ModItems.PISTOLCROSSBOW);
         registerCustomCrossbow(ModItems.HEAVYCROSSBOW);
         registerCustomCrossbow(ModItems.ARBALEST);
     }
 
-    private static void registerCustomBow(Item item) {
+    private static void registerCustomFlatBow(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
             if (entity == null) {
                 return 0.0F;
             } else {
-                return entity.getActiveItem() != stack ? 0.0F : (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
+                return entity.getActiveItem() != stack ? 0.0F : (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 40.0F;
             }
         });
         ModelPredicateProviderRegistry.register(
@@ -30,6 +30,22 @@ public class ModModelPredicates {
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F
         );
     }
+
+    private static void registerCustomLongBow(Item item) {
+        ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
+            if (entity == null) {
+                return 0.0F;
+            } else {
+                return entity.getActiveItem() != stack ? 0.0F : (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 70.0F; //draw speed of Long Bow
+            }
+        });
+        ModelPredicateProviderRegistry.register(
+                item,
+                new Identifier("pulling"),
+                (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F
+        );
+    }
+
     private static void registerCustomCrossbow(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
             if (entity == null) {
