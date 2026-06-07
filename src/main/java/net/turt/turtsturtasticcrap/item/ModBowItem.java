@@ -12,8 +12,8 @@ public class ModBowItem extends BowItem {
     public ModBowItem(Settings settings, int maxDrawTicks, float velocityMultiplier, double damageMultiplier) {
         super(settings);
         this.maxDrawTicks = maxDrawTicks;
-        this.damageMultiplier = damageMultiplier;
         this.velocityMultiplier = velocityMultiplier;
+        this.damageMultiplier = damageMultiplier;
     }
 
     public int getMaxDrawTicks() {

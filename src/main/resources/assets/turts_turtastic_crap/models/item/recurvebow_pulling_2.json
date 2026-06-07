@@ -1,0 +1,6 @@
+{
+  "parent": "turts_turtastic_crap:item/recurvebow",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/recurvebow_pulling_2"
+  }
+}

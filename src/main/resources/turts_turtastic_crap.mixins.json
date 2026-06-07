@@ -9,7 +9,8 @@
 		"AbstractClientPlayerEntityMixin",
 		"HeldItemRendererMixin",
 		"ModBowItemMixin",
-		"PlayerEntityRendererMixin"
+		"PlayerEntityRendererMixin",
+		"ProjectileEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
