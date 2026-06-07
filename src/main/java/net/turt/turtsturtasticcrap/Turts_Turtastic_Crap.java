@@ -2,7 +2,7 @@ package net.turt.turtsturtasticcrap;
 
 import net.fabricmc.api.ModInitializer;
 import net.turt.turtsturtasticcrap.item.ModBowItem;
-import net.turt.turtsturtasticcrap.item.ModCrossbow;
+import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import net.turt.turtsturtasticcrap.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class Turts_Turtastic_Crap implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBowItem.registerModBow();
-		ModCrossbow.registerModCrossbow();
+		ModCrossbowItem.registerModCrossbow();
 
 	}
 }

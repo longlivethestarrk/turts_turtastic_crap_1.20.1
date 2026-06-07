@@ -4,7 +4,7 @@ import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.turt.turtsturtasticcrap.item.ModCrossbow;
+import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -21,7 +21,7 @@ public class HeldItemRendererMixin {
         // If Minecraft is checking if the held item is a vanilla crossbow...
         if (item == Items.CROSSBOW) {
             // ...return true if it is a vanilla crossbow OR if it belongs to your custom class
-            return stack.isOf(Items.CROSSBOW) || stack.getItem() instanceof ModCrossbow;
+            return stack.isOf(Items.CROSSBOW) || stack.getItem() instanceof ModCrossbowItem;
         }
 
         // Otherwise, fall back to default behavior

@@ -6,7 +6,7 @@ import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.turt.turtsturtasticcrap.item.ModBowItem;
-import net.turt.turtsturtasticcrap.item.ModCrossbow;
+import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import net.turt.turtsturtasticcrap.item.ModItems;
 
 public class Turts_Turtastic_Crap_Client implements ClientModInitializer {
@@ -23,7 +23,7 @@ public class Turts_Turtastic_Crap_Client implements ClientModInitializer {
                 if (CrossbowItem.isCharged(stack)) {
                     return 0.0F;
                 }
-                if (stack.getItem() instanceof ModCrossbow customCrossbow) {
+                if (stack.getItem() instanceof ModCrossbowItem customCrossbow) {
                     // 1. Tracks current progress relative to the 72000-tick baseline
                     int ticksHeld = stack.getMaxUseTime() - entity.getItemUseTimeLeft();
 

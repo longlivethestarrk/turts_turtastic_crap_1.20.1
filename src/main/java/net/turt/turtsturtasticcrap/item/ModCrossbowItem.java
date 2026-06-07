@@ -14,14 +14,14 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import net.turt.turtsturtasticcrap.Turts_Turtastic_Crap;
 
-public class ModCrossbow extends CrossbowItem {
+public class ModCrossbowItem extends CrossbowItem {
     private final int maxDrawTicks;
     private final float velocityMultiplier;
     private final double damageMultiplier;
 
     private boolean playedMidClick = false;
 
-    public ModCrossbow(Settings settings, int maxDrawTicks, float velocityMultiplier, double damageMultiplier) {
+    public ModCrossbowItem(Settings settings, int maxDrawTicks, float velocityMultiplier, double damageMultiplier) {
         super(settings);
         this.maxDrawTicks = maxDrawTicks;
         this.velocityMultiplier = velocityMultiplier;

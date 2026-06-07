@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.turt.turtsturtasticcrap.item.ModCrossbow;
+import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,7 +28,7 @@ public class ProjectileEntityMixin {
     )
     private static void modifyCrossbowProjectileVelocity(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, ItemStack projectile, float soundPitch, boolean creative, float speed, float divergence, float simulated, CallbackInfo ci) {
         // Ensure this logic applies only to your custom weapon profile on the server side
-        if (crossbow.getItem() instanceof ModCrossbow customCrossbow && !world.isClient) {
+        if (crossbow.getItem() instanceof ModCrossbowItem customCrossbow && !world.isClient) {
 
             // Search a tiny boundary around the shooter to capture the newly spawned arrow entity instance
             java.util.List<PersistentProjectileEntity> arrows = world.getEntitiesByClass(

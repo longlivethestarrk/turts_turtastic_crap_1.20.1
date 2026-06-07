@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.turt.turtsturtasticcrap.item.ModCrossbow;
+import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,7 +24,7 @@ public class PlayerEntityRendererMixin {
         ItemStack itemStack = player.getStackInHand(hand);
 
         // Check if the item is your custom crossbow and if it is charged
-        if (!player.handSwinging && itemStack.getItem() instanceof ModCrossbow && CrossbowItem.isCharged(itemStack)) {
+        if (!player.handSwinging && itemStack.getItem() instanceof ModCrossbowItem && CrossbowItem.isCharged(itemStack)) {
             cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_HOLD);
         }
     }
