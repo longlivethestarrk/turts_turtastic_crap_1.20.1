@@ -7,7 +7,9 @@
 	],
 	"client": [
 		"AbstractClientPlayerEntityMixin",
-		"ModBowItemMixin"
+		"HeldItemRendererMixin",
+		"ModBowItemMixin",
+		"PlayerEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
