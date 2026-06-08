@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "YYY",
+    "~$~",
+    "Y# "
+  ],
+  "key": {
+    "~": {
+      "item": "minecraft:string"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "item": "minecraft:iron_nugget"
+    },
+    "$": {
+      "item": "minecraft:tripwire_hook"
+    }
+  },
+  "result": {
+    "item": "turts_turtastic_crap:pistol_crossbow"
+  }
+}

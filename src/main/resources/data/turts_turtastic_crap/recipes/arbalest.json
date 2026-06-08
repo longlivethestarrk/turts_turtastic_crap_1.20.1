@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "YYY",
+    "~$~",
+    " # "
+  ],
+  "key": {
+    "~": {
+      "item": "turts_turtastic_crap:flax_string"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "item": "minecraft:iron_ingot"
+    },
+    "$": {
+      "item": "minecraft:tripwire_hook"
+    }
+  },
+  "result": {
+    "item": "turts_turtastic_crap:arbalest"
+  }
+}

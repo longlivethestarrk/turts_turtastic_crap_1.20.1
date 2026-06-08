@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #X",
+    "# X",
+    " #X"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "turts_turtastic_crap:flax_string"
+    }
+  },
+  "result": {
+    "item": "turts_turtastic_crap:recurvebow"
+  }
+}
