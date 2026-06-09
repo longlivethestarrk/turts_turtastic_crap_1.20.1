@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values":
+  [
+    "minecraft:crossbow",
+    "turts_turtastic_crap:shortbow",
+    "turts_turtastic_crap:recurvebow",
+    "turts_turtastic_crap:flatbow",
+    "turts_turtastic_crap:longbow",
+    "turts_turtastic_crap:pistol_crossbow",
+    "turts_turtastic_crap:heavy_crossbow",
+    "turts_turtastic_crap:arbalest"
+  ]
+}
