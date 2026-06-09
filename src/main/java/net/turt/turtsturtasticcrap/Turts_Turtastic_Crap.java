@@ -1,9 +1,11 @@
 package net.turt.turtsturtasticcrap;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.turt.turtsturtasticcrap.item.ModBowItem;
 import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import net.turt.turtsturtasticcrap.item.ModItems;
+import net.turt.turtsturtasticcrap.util.ModTrades;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +20,16 @@ public class Turts_Turtastic_Crap implements ModInitializer {
 		ModItems.registerModItems();
 		ModBowItem.registerModBow();
 		ModCrossbowItem.registerModCrossbow();
+
+		ModTrades.registerModTrades();
+
+		FuelRegistry.INSTANCE.add(ModItems.SHORTBOW, 300);
+		FuelRegistry.INSTANCE.add(ModItems.RECURVEBOW, 300);
+		FuelRegistry.INSTANCE.add(ModItems.FLATBOW, 300);
+		FuelRegistry.INSTANCE.add(ModItems.LONGBOW, 300);
+		FuelRegistry.INSTANCE.add(ModItems.PISTOLCROSSBOW, 300);
+		FuelRegistry.INSTANCE.add(ModItems.HEAVYCROSSBOW, 300);
+		FuelRegistry.INSTANCE.add(ModItems.ARBALEST, 300);
 
 	}
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "supplementaries:flax"
+    }
+  },
+  "result": {
+    "item": "turts_turtastic_crap:flax_string"
+  }
+}
