@@ -11,6 +11,7 @@
 		"LivingEntityDamageMixin",
 		"ModBowItemMixin",
 		"PlayerEntityRendererMixin",
+		"PlayerGodOfTheSeaMixin",
 		"ProjectileEntityMixin",
 		"ServerTickMixin"
 	],

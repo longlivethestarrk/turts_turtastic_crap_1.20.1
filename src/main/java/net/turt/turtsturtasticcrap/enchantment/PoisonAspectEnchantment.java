@@ -6,9 +6,9 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.turt.turtsturtasticcrap.util.ModEnchantments;
 
-public class IceAspectEnchantment extends Enchantment {
-    public IceAspectEnchantment() {
-        super(Rarity.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND});
+public class PoisonAspectEnchantment extends Enchantment {
+    public PoisonAspectEnchantment() {
+        super(Rarity.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -23,6 +23,6 @@ public class IceAspectEnchantment extends Enchantment {
 
     @Override
     public boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != Enchantments.FIRE_ASPECT && other != ModEnchantments.POISON_ASPECT;
+        return super.canAccept(other) && other != Enchantments.FIRE_ASPECT && other != ModEnchantments.ICE_ASPECT;
     }
 }

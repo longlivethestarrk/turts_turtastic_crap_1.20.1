@@ -13,6 +13,8 @@
   "item.turts_turtastic_crap.arbalest": "Arbalest",
 
   "enchantment.turts_turtastic_crap.ice_aspect": "Ice Aspect",
+  "enchantment.turts_turtastic_crap.poison_aspect": "Poison Aspect",
+  "enchantment.turts_turtastic_crap.god_of_the_sea": "God of the Sea",
 
   "death.attack.modid.ice_freeze": "%s was frozen solid",
   "death.attack.modid.ice_freeze.player": "%s was frozen solid while fighting %s",
