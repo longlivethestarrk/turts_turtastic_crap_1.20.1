@@ -1,5 +1,6 @@
 package net.turt.turtsturtasticcrap.util;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -16,4 +17,12 @@ public class ModTags {
         }
     }
 
+    public static class Entities {
+        public static final TagKey<EntityType<?>> ICE_ASPECT_DAMAGE_IMMUNE =
+                TagKey.of(RegistryKeys.ENTITY_TYPE, new Identifier("turts_turtastic_crap", "ice_aspect_damage_immune")
+        );
+        public static final TagKey<EntityType<?>> ICE_ASPECT_DAMAGE_VULNERABLE =
+                TagKey.of(RegistryKeys.ENTITY_TYPE, new Identifier("turts_turtastic_crap", "ice_aspect_damage_vulnerable")
+                );
+    }
 }

@@ -1,0 +1,6 @@
+{
+  "message_id": "modid.ice_freeze",
+  "scaling": "never",
+  "exhaustion": 0.1,
+  "effects": "freezing"
+}
