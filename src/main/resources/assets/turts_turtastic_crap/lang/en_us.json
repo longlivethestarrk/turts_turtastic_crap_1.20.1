@@ -12,11 +12,19 @@
   "item.turts_turtastic_crap.heavy_crossbow": "Heavy Crossbow",
   "item.turts_turtastic_crap.arbalest": "Arbalest",
 
+  "enchantment.turts_turtastic_crap.god_of_the_sea": "God of the Sea",
+  "enchantment.turts_turtastic_crap.god_of_thunder": "God of Thunder",
   "enchantment.turts_turtastic_crap.ice_aspect": "Ice Aspect",
   "enchantment.turts_turtastic_crap.poison_aspect": "Poison Aspect",
-  "enchantment.turts_turtastic_crap.god_of_the_sea": "God of the Sea",
+  "enchantment.turts_turtastic_crap.soul_seeker": "Soul Seeker",
 
   "death.attack.modid.ice_freeze": "%s was frozen solid",
   "death.attack.modid.ice_freeze.player": "%s was frozen solid while fighting %s",
-  "death.attack.modid.ice_freeze.item": "%s was turned to ice by %s using %s"
+  "death.attack.modid.ice_freeze.item": "%s was turned to ice by %s using %s",
+
+  "enchantment.turts_turtastic_crap.god_of_the_sea.desc": "Grants water breathing while the user is holding the trident",
+  "enchantment.turts_turtastic_crap.god_of_thunder.desc": "Grants a 5% chance for lightning to summon when used to attack a mob (50% chance during thunderstorms)",
+  "enchantment.turts_turtastic_crap.ice_aspect.desc": "Causes additional freeze damage and slowness when used to attack a mob",
+  "enchantment.turts_turtastic_crap.poison_aspect.desc": "Causes additional poison damage when used to attack a mob",
+  "enchantment.turts_turtastic_crap.soul_seeker.desc": "Projectiles home towards nearby mobs"
 }

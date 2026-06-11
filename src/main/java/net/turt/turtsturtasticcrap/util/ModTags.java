@@ -1,5 +1,6 @@
 package net.turt.turtsturtasticcrap.util;
 
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
@@ -15,6 +16,16 @@ public class ModTags {
         private static TagKey<Item> createtag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(Turts_Turtastic_Crap.MOD_ID, name));
         }
+
+        public static final TagKey<Enchantment> ICE_ASPECT_INCOMPATIBLE = TagKey.of(
+                RegistryKeys.ENCHANTMENT,
+                new Identifier("turts_turtastic_crap", "ice_aspect_incompatible")
+        );
+
+        public static final TagKey<Enchantment> POISON_ASPECT_INCOMPATIBLE = TagKey.of(
+                RegistryKeys.ENCHANTMENT,
+                new Identifier("turts_turtastic_crap", "poison_aspect_incompatible")
+        );
     }
 
     public static class Entities {

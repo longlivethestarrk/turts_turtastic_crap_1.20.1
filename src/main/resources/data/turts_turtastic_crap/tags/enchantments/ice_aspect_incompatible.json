@@ -1,0 +1,10 @@
+{ice_aspect_incompatible.json
+  "replace": false,
+  "values": [
+    "turts_turtastic_crap:ice_aspect",
+    "turts_turtastic_crap:poison_aspect",
+    "minecraft:fire_aspect",
+    "minecraft:soul_fire_aspect",
+    "supplementaries:lumisene_fire_aspect"
+  ]
+}

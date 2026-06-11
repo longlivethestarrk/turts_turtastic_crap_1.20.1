@@ -1,10 +1,13 @@
 package net.turt.turtsturtasticcrap.util;
 
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.HorseEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
@@ -22,9 +25,12 @@ public class IceAspectManager {
         int level = EnchantmentHelper.getLevel(ModEnchantments.ICE_ASPECT, attacker.getMainHandStack());
 
         if (level > 0) {
-            boolean isImmuneEntity = target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_IMMUNE);
+            boolean isImmuneViaTag = target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_IMMUNE);
+            boolean isColdVanillaMob = (target.getType() == EntityType.STRAY ||
+                    target.getType() == EntityType.SNOW_GOLEM ||
+                    target.getType() == EntityType.POLAR_BEAR);
+            boolean isImmuneEntity = isImmuneViaTag || isColdVanillaMob;
 
-            // Checking leather armor immunity
             int matchingArmorPieces = 0;
             for (ItemStack armorItem : target.getArmorItems()) {
                 if (!armorItem.isEmpty() && armorItem.isIn(ItemTags.FREEZE_IMMUNE_WEARABLES)) {
@@ -33,7 +39,15 @@ public class IceAspectManager {
             }
             boolean isWearingFullLeather = (matchingArmorPieces == 4);
 
-            if (isImmuneEntity || isWearingFullLeather) {
+            boolean isLeatherArmoredHorse = false;
+            if (target instanceof HorseEntity horse) {
+                ItemStack horseArmor = horse.getArmorType();
+                if (!horseArmor.isEmpty() && horseArmor.isOf(Items.LEATHER_HORSE_ARMOR)) {
+                    isLeatherArmoredHorse = true;
+                }
+            }
+
+            if (isImmuneEntity || isWearingFullLeather || isLeatherArmoredHorse) {
                 return;
             }
 
@@ -69,11 +83,16 @@ public class IceAspectManager {
                     shouldDamage = true;
                 }
             }
-
+            //Hard check mob immunity
             if (shouldDamage) {
-                boolean isImmuneEntity = target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_IMMUNE);
+                boolean isImmuneViaTag = target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_IMMUNE);
+                boolean isColdVanillaMob = (target.getType() == EntityType.STRAY ||
+                        target.getType() == EntityType.SNOW_GOLEM ||
+                        target.getType() == EntityType.POLAR_BEAR);
+                boolean isImmuneEntity = isImmuneViaTag || isColdVanillaMob;
 
                 if (!isImmuneEntity) {
+                    //Standard check armor slots for players/humanoids immunity
                     int matchingArmorPieces = 0;
                     for (ItemStack armorItem : target.getArmorItems()) {
                         if (!armorItem.isEmpty() && armorItem.isIn(ItemTags.FREEZE_IMMUNE_WEARABLES)) {
@@ -85,13 +104,20 @@ public class IceAspectManager {
                     float damageReduction = matchingArmorPieces * 0.25F;
                     float finalDamage = baseDamage - damageReduction;
 
+                    // Vulnerability Check
                     if (target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_VULNERABLE)) {
                         finalDamage *= 2.0F;
                     }
 
-                    if (shouldDamage) {
-                        target.damage(world.getDamageSources().create(ModEnchantments.ICE_FREEZE_TYPE), finalDamage);
+                    if (target instanceof HorseEntity horse) {
+                        ItemStack horseArmor = horse.getArmorType();
+                        if (!horseArmor.isEmpty() && horseArmor.isOf(Items.LEATHER_HORSE_ARMOR)) {
+                            finalDamage = 0.0F;
+                        }
+                    }
 
+                    if (finalDamage > 0.0F) {
+                        target.damage(world.getDamageSources().freeze(), finalDamage);
                         target.hurtTime = 10;
                         target.maxHurtTime = 10;
 

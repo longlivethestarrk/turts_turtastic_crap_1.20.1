@@ -12,22 +12,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public class LivingEntityDamageMixin {
+public class PlayerPoisonAspectMixin {
     @Inject(method = "damage", at = @At("TAIL"))
-    private void onDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void onPoisonDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue() && source.getAttacker() instanceof LivingEntity attacker) {
             LivingEntity target = (LivingEntity) (Object) this;
 
             if (!target.getWorld().isClient()) {
-                //ICE ASPECT
-                net.turt.turtsturtasticcrap.util.IceAspectManager.onEntityHit(attacker, target);
-
-                //POISON ASPECT
                 int poisonLevel = EnchantmentHelper.getLevel(ModEnchantments.POISON_ASPECT, attacker.getMainHandStack());
                 if (poisonLevel > 0) {
-                    int duration = poisonLevel * 110;
-
-                    int amplifier = 0;
+                    int duration = poisonLevel * 110; // Duration
+                    int amplifier = 0; // Hardcodes to Poison I
 
                     target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, duration, amplifier));
                 }

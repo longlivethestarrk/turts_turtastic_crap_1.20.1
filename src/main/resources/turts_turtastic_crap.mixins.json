@@ -7,11 +7,16 @@
 	],
 	"client": [
 		"AbstractClientPlayerEntityMixin",
+		"AnvilScreenHandlerMixin",
+		"EnchantmentCompatibilityMixin",
 		"HeldItemRendererMixin",
-		"LivingEntityDamageMixin",
 		"ModBowItemMixin",
 		"PlayerEntityRendererMixin",
 		"PlayerGodOfTheSeaMixin",
+		"PlayerGodOfThunderMixin",
+		"PlayerIceAspectMixin",
+		"PlayerPoisonAspectMixin",
+		"PlayerSoulSeekerMixin",
 		"ProjectileEntityMixin",
 		"ServerTickMixin"
 	],

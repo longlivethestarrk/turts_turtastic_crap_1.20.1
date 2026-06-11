@@ -7,13 +7,21 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.turt.turtsturtasticcrap.enchantment.GodOfTheSeaEnchantment;
-import net.turt.turtsturtasticcrap.enchantment.IceAspectEnchantment;
-import net.turt.turtsturtasticcrap.enchantment.PoisonAspectEnchantment;
+import net.turt.turtsturtasticcrap.enchantment.*;
 
 public class ModEnchantments {
 
     //for registering enchantments
+    public static final Enchantment GOD_OF_THE_SEA = register(
+            "god_of_the_sea",
+            new GodOfTheSeaEnchantment()
+    );
+
+    public static final Enchantment GOD_OF_THUNDER = register(
+            "god_of_thunder",
+            new GodOfThunderEnchantment()
+    );
+
     public static final Enchantment ICE_ASPECT = register(
             "ice_aspect",
             new IceAspectEnchantment()
@@ -24,9 +32,10 @@ public class ModEnchantments {
             new PoisonAspectEnchantment()
     );
 
-    public static final Enchantment GOD_OF_THE_SEA = register(
-            "god_of_the_sea",
-            new GodOfTheSeaEnchantment()
+
+    public static final Enchantment SOUL_SEEKER = register(
+            "soul_seeker",
+            new SoulSeekerEnchantment()
     );
 
     private static Enchantment register(String name, Enchantment enchantment) {
