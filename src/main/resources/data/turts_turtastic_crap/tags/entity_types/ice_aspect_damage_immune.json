@@ -5,6 +5,18 @@
     "minecraft:polar_bear",
     "minecraft:snow_golem",
     "minecraft:stray",
-    "minecraft:wither"
+    "minecraft:wither",
+    "ecologics:penguin",
+    "friendsandfoes:iceologer",
+    "herobrine:fake_herobrine_mage",
+    "herobrine:herobrine_builder",
+    "herobrine:herobrine_mage",
+    "herobrine:herobrine_spy",
+    "herobrine:herobrine_stalker",
+    "herobrine:herobrine_warrior",
+    "rottencreatures:frostbitten",
+    "rottencreatures:glacial_hunter",
+    "rottencreatures:immortal",
+    "variantsandventures:gelid"
   ]
 }

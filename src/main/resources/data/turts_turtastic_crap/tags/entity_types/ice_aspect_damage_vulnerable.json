@@ -3,6 +3,9 @@
   "values": [
     "minecraft:blaze",
     "minecraft:magma_cube",
-    "minecraft:husk"
+    "minecraft:husk",
+    "friendsandfoes:wildfire",
+    "rottencreatures:burned",
+    "rottencreatures:mummy"
   ]
 }
