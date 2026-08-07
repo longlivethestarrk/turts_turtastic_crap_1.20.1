@@ -8,6 +8,7 @@
 	"client": [
 		"AbstractClientPlayerEntityMixin",
 		"AnvilScreenHandlerMixin",
+		"BiomeMakeoverAltarFixMixin",
 		"EnchantmentCompatibilityMixin",
 		"HeldItemRendererMixin",
 		"ModBowItemMixin",
