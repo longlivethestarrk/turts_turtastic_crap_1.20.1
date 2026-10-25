@@ -15,17 +15,20 @@ public class PlayerGodOfTheSeaMixin {
     private void applyGillsEffect(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
 
-        // Run this logic check entirely on the server thread side
+        // 1. Core Server Guard: Ensure logic processes strictly on the server thread loop
         if (!player.getWorld().isClient()) {
-            // Check the main hand item stack
+
+            // Check the main hand and off hand item stacks for the custom enchantment
             int mainHandLevel = EnchantmentHelper.getLevel(ModEnchantments.GOD_OF_THE_SEA, player.getMainHandStack());
-            // Check the off hand item stack
             int offHandLevel = EnchantmentHelper.getLevel(ModEnchantments.GOD_OF_THE_SEA, player.getOffHandStack());
 
-            // If either hand holds a trident carrying the Gills enchantment
             if (mainHandLevel > 0 || offHandLevel > 0) {
-                // Instantly refill their oxygen bubble meter to maximum capacity every frame
-                player.setAir(player.getMaxAir());
+
+                // FIX: Only modify the player's air status if it has actually decreased.
+                // This prevents the server from spamming data sync packets to the client every single frame.
+                if (player.getAir() < player.getMaxAir()) {
+                    player.setAir(player.getMaxAir());
+                }
             }
         }
     }

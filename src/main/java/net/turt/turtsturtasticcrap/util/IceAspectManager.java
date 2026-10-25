@@ -16,19 +16,17 @@ import net.minecraft.sound.SoundEvents;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 public class IceAspectManager {
-
-    public static final Set<LivingEntity> FROZEN_ENTITIES = new HashSet<>();
+    // FIX: Store UUIDs instead of raw Entity references to prevent massive server memory leaks
+    public static final Set<UUID> FROZEN_ENTITY_UUIDS = new HashSet<>();
 
     public static void onEntityHit(LivingEntity attacker, LivingEntity target) {
         int level = EnchantmentHelper.getLevel(ModEnchantments.ICE_ASPECT, attacker.getMainHandStack());
-
         if (level > 0) {
             boolean isImmuneViaTag = target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_IMMUNE);
-            boolean isColdVanillaMob = (target.getType() == EntityType.STRAY ||
-                    target.getType() == EntityType.SNOW_GOLEM ||
-                    target.getType() == EntityType.POLAR_BEAR);
+            boolean isColdVanillaMob = (target.getType() == EntityType.STRAY || target.getType() == EntityType.SNOW_GOLEM || target.getType() == EntityType.POLAR_BEAR);
             boolean isImmuneEntity = isImmuneViaTag || isColdVanillaMob;
 
             int matchingArmorPieces = 0;
@@ -53,19 +51,29 @@ public class IceAspectManager {
 
             int duration = level * 60;
             int amplifier = level - 1;
-
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, duration, amplifier, false, false));
             target.setFrozenTicks(140);
 
-            FROZEN_ENTITIES.add(target);
+            // Add UUID to tracker tracking collection
+            FROZEN_ENTITY_UUIDS.add(target.getUuid());
+
             target.getWorld().playSound(null, target.getBlockPos(), SoundEvents.BLOCK_POWDER_SNOW_STEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
         }
     }
 
+    // Call this via ServerTickEvents.START_WORLD_TICK in your main Initializer
     public static void tick(ServerWorld world) {
-        FROZEN_ENTITIES.removeIf(target -> {
+        if (FROZEN_ENTITY_UUIDS.isEmpty()) return;
+
+        FROZEN_ENTITY_UUIDS.removeIf(uuid -> {
+            // Find the active instance natively in this specific server world instance
+            if (!(world.getEntity(uuid) instanceof LivingEntity target)) {
+                // If entity is in a different dimension right now, skip removing it, let that dimension's tick handle it
+                return false;
+            }
+
             if (!target.isAlive() || !target.hasStatusEffect(StatusEffects.SLOWNESS)) {
-                return true;
+                return true; // Removes it from the set safely
             }
 
             int remainingTicks = target.getStatusEffect(StatusEffects.SLOWNESS).getDuration();
@@ -76,23 +84,18 @@ public class IceAspectManager {
                 if (remainingTicks == 40 || remainingTicks == 20 || remainingTicks == 1) {
                     shouldDamage = true;
                 }
-            }
-            else if (level == 2) {
-                if (remainingTicks == 100 || remainingTicks == 80 || remainingTicks == 60 ||
-                        remainingTicks == 40 || remainingTicks == 20 || remainingTicks == 1) {
+            } else if (level == 2) {
+                if (remainingTicks == 100 || remainingTicks == 80 || remainingTicks == 60 || remainingTicks == 40 || remainingTicks == 20 || remainingTicks == 1) {
                     shouldDamage = true;
                 }
             }
-            //Hard check mob immunity
+
             if (shouldDamage) {
                 boolean isImmuneViaTag = target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_IMMUNE);
-                boolean isColdVanillaMob = (target.getType() == EntityType.STRAY ||
-                        target.getType() == EntityType.SNOW_GOLEM ||
-                        target.getType() == EntityType.POLAR_BEAR);
+                boolean isColdVanillaMob = (target.getType() == EntityType.STRAY || target.getType() == EntityType.SNOW_GOLEM || target.getType() == EntityType.POLAR_BEAR);
                 boolean isImmuneEntity = isImmuneViaTag || isColdVanillaMob;
 
                 if (!isImmuneEntity) {
-                    //Standard check armor slots for players/humanoids immunity
                     int matchingArmorPieces = 0;
                     for (ItemStack armorItem : target.getArmorItems()) {
                         if (!armorItem.isEmpty() && armorItem.isIn(ItemTags.FREEZE_IMMUNE_WEARABLES)) {
@@ -104,7 +107,6 @@ public class IceAspectManager {
                     float damageReduction = matchingArmorPieces * 0.25F;
                     float finalDamage = baseDamage - damageReduction;
 
-                    // Vulnerability Check
                     if (target.getType().getRegistryEntry().isIn(ModTags.Entities.ICE_ASPECT_DAMAGE_VULNERABLE)) {
                         finalDamage *= 2.0F;
                     }
@@ -124,12 +126,8 @@ public class IceAspectManager {
                         int particleCount = Math.round(finalDamage * 15);
                         world.spawnParticles(
                                 ParticleTypes.SNOWFLAKE,
-                                target.getX(),
-                                target.getBodyY(0.5),
-                                target.getZ(),
-                                particleCount,
-                                0.3, 0.5, 0.3,
-                                0.02
+                                target.getX(), target.getBodyY(0.5), target.getZ(),
+                                particleCount, 0.3, 0.5, 0.3, 0.02
                         );
                     }
                 }

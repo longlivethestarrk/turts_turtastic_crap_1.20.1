@@ -1,6 +1,7 @@
 package net.turt.turtsturtasticcrap.mixin;
 
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -13,18 +14,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public class PlayerPoisonAspectMixin {
+
     @Inject(method = "damage", at = @At("TAIL"))
     private void onPoisonDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (cir.getReturnValue() && source.getAttacker() instanceof LivingEntity attacker) {
+        if (cir.getReturnValue()) {
             LivingEntity target = (LivingEntity) (Object) this;
 
             if (!target.getWorld().isClient()) {
-                int poisonLevel = EnchantmentHelper.getLevel(ModEnchantments.POISON_ASPECT, attacker.getMainHandStack());
-                if (poisonLevel > 0) {
-                    int duration = poisonLevel * 110; // Duration
-                    int amplifier = 0; // Hardcodes to Poison I
+                if (source.getAttacker() instanceof LivingEntity attacker) {
+                    int poisonLevel = EnchantmentHelper.getLevel(ModEnchantments.POISON_ASPECT, attacker.getMainHandStack());
+                    if (poisonLevel > 0) {
+                        int duration = poisonLevel * 110;
+                        int amplifier = 0;
 
-                    target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, duration, amplifier));
+                        target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, duration, amplifier));
+                    }
                 }
             }
         }

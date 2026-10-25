@@ -3,16 +3,11 @@
 	"package": "net.turt.turtsturtasticcrap.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
-	],
-	"client": [
-		"AbstractClientPlayerEntityMixin",
+		"ExampleMixin",
 		"AnvilScreenHandlerMixin",
 		"BiomeMakeoverAltarFixMixin",
 		"EnchantmentCompatibilityMixin",
-		"HeldItemRendererMixin",
 		"ModBowItemMixin",
-		"PlayerEntityRendererMixin",
 		"PlayerGodOfTheSeaMixin",
 		"PlayerGodOfThunderMixin",
 		"PlayerIceAspectMixin",
@@ -20,6 +15,11 @@
 		"PlayerSoulSeekerMixin",
 		"ProjectileEntityMixin",
 		"ServerTickMixin"
+	],
+	"client": [
+		"AbstractClientPlayerEntityMixin",
+		"HeldItemRendererMixin",
+		"PlayerEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
