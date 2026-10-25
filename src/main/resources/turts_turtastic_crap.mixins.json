@@ -3,7 +3,6 @@
 	"package": "net.turt.turtsturtasticcrap.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin",
 		"AnvilScreenHandlerMixin",
 		"BiomeMakeoverAltarFixMixin",
 		"EnchantmentCompatibilityMixin",
@@ -14,7 +13,8 @@
 		"PlayerPoisonAspectMixin",
 		"PlayerSoulSeekerMixin",
 		"ProjectileEntityMixin",
-		"ServerTickMixin"
+		"ServerTickMixin",
+		"SuperKnockbackMixin"
 	],
 	"client": [
 		"AbstractClientPlayerEntityMixin",
