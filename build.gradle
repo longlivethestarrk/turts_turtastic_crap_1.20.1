@@ -11,11 +11,22 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	// 1. Add the Modrinth Maven repository if you don't already have it
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
+
+	// Simply Swords requires Architectury, which usually lives on the kosher/shedaniel maven
+	maven { url = "https://architectury.dev" }
+	maven { url = "https://shedaniel.me" }
 }
 
 fabricApi {
@@ -32,7 +43,14 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	
+
+	// 2. Add Simply Swords (Required parent mod)
+	// Using version 1.51.4 for 1.20.1 as an example
+	modImplementation "maven.modrinth:bK3Ubu9p:xe5E39uw"
+
+	// 3. Add Simply More for 1.20.1
+	// This allows you to reference 'LanceItem' inside your code!
+	modImplementation "maven.modrinth:zhpyD8Y0:oxNX8OYm"
 }
 
 processResources {

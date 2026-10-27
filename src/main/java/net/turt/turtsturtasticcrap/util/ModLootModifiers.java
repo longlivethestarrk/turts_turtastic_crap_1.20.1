@@ -22,7 +22,7 @@ public class ModLootModifiers {
 
                 LootPool.Builder pool = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(0.05F))
                         .apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.1F, 0.75F)))
                         .with(ItemEntry.builder(net.minecraft.registry.Registries.ITEM.get(new net.minecraft.util.Identifier("minecraft", "copper_sword"))))
                         .with(ItemEntry.builder(ModItems.COPPER_LONGSWORD))

@@ -9,6 +9,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.rosemarythyme.simplymore.item.normal.LanceItem;
 import net.turt.turtsturtasticcrap.Turts_Turtastic_Crap;
 
 
@@ -64,7 +65,7 @@ public class ModItems {
     public static final Item COPPER_BACKHAND_BLADE = registerItem("copper_backhand_blade",
             new SwordItem(ModToolMaterials.COPPER, 1, -1.7f, new FabricItemSettings()));
     public static final Item COPPER_LANCE = registerItem("copper_lance",
-            new SwordItem(ModToolMaterials.COPPER, 3, -3f, new FabricItemSettings()));
+            new LanceItem(ModToolMaterials.COPPER, 3, -3f, new FabricItemSettings()));
     public static final Item COPPER_KHOPESH = registerItem("copper_khopesh",
             new SwordItem(ModToolMaterials.COPPER, 2, -2.1f, new FabricItemSettings()));
     public static final Item COPPER_DAGGER = registerItem("copper_dagger",
