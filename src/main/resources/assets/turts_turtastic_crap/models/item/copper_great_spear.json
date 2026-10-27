@@ -1,0 +1,6 @@
+{
+  "parent": "simplyswords:item/long_handheld",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/copper_great_spear"
+  }
+}

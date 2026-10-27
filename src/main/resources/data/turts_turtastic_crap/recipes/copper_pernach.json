@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "Y#Y",
+    "Y~Y",
+    " ~ "
+  ],
+  "key": {
+    "~": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "Y": {
+      "item": "minecraft:copper_nugget"
+    }
+  },
+  "result": {
+    "item": "turts_turtastic_crap:copper_pernach"
+  }
+}

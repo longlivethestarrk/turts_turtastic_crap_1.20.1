@@ -1,0 +1,6 @@
+{
+  "parent": "simplyswords:item/template_reworked_greathammer",
+  "textures": {
+    "texture": "turts_turtastic_crap:item/copper_greathammer"
+  }
+}

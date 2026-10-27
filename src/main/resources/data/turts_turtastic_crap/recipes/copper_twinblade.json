@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    " ~ ",
+    "#  "
+  ],
+  "key": {
+    "~": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "turts_turtastic_crap:copper_twinblade"
+  }
+}

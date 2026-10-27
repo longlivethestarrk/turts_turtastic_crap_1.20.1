@@ -1,0 +1,6 @@
+{
+  "parent": "simplyswords:item/template_longdagger",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/copper_backhand_blade"
+  }
+}

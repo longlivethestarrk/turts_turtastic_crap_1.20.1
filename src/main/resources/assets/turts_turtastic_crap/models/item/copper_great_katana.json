@@ -1,0 +1,6 @@
+{
+  "parent": "simplymore:item/template/great_katana",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/copper_great_katana"
+  }
+}

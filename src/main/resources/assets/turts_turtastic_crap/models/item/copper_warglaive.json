@@ -1,0 +1,6 @@
+{
+  "parent": "simplyswords:item/template_warglaive",
+  "textures": {
+    "layer0": "turts_turtastic_crap:item/copper_warglaive"
+  }
+}

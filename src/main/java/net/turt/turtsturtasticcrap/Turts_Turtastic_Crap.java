@@ -10,6 +10,7 @@ import net.turt.turtsturtasticcrap.item.ModBowItem;
 import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import net.turt.turtsturtasticcrap.item.ModItems;
 import net.turt.turtsturtasticcrap.util.ModEnchantments;
+import net.turt.turtsturtasticcrap.util.ModLootModifiers;
 import net.turt.turtsturtasticcrap.util.ModTrades;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class Turts_Turtastic_Crap implements ModInitializer {
 		ModCrossbowItem.registerModCrossbow();
 		ModTrades.registerModTrades();
 		ModEnchantments.registerModEnchantments();
+		ModLootModifiers.registerLoot();
 
 		FuelRegistry.INSTANCE.add(ModItems.SHORTBOW, 300);
 		FuelRegistry.INSTANCE.add(ModItems.RECURVEBOW, 300);
