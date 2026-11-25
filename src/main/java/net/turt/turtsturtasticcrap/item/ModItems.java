@@ -52,7 +52,7 @@ public class ModItems {
     public static final Item COPPER_GREATHAMMER = registerItem("copper_greathammer",
             new SwordItem(ModToolMaterials.COPPER, 7, -3.2f, new FabricItemSettings()));
     public static final Item COPPER_CHAKRAM = registerItem("copper_chakram",
-            new SwordItem(ModToolMaterials.COPPER, 2, 0f, new FabricItemSettings()));
+            new SwordItem(ModToolMaterials.COPPER, 2, -3.0f, new FabricItemSettings()));
     public static final Item COPPER_SCYTHE = registerItem("copper_scythe",
             new SwordItem(ModToolMaterials.COPPER, 4, -2.7f, new FabricItemSettings()));
     public static final Item COPPER_HALBERD = registerItem("copper_halberd",

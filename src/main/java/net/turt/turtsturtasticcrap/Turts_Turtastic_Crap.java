@@ -9,6 +9,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.turt.turtsturtasticcrap.item.ModBowItem;
 import net.turt.turtsturtasticcrap.item.ModCrossbowItem;
 import net.turt.turtsturtasticcrap.item.ModItems;
+import net.turt.turtsturtasticcrap.item.ModItemsGroups;
 import net.turt.turtsturtasticcrap.util.ModEnchantments;
 import net.turt.turtsturtasticcrap.util.ModLootModifiers;
 import net.turt.turtsturtasticcrap.util.ModTrades;
@@ -23,6 +24,7 @@ public class Turts_Turtastic_Crap implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
+		ModItemsGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBowItem.registerModBow();
 		ModCrossbowItem.registerModCrossbow();

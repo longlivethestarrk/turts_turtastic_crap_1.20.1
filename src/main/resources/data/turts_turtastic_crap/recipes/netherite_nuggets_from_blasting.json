@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 6000,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "tag": "simplyswords:netherite_gear"
+    }
+  ],
+  "result": "turts_turtastic_crap:netherite_nugget"
+}
